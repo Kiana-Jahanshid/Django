@@ -6,6 +6,8 @@
 
 
 ```
+0.  python -m venv .venv
+    ./.venv/Scripts/activate
 
 1. django-admin startproject mysite .
 
