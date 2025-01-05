@@ -1,0 +1,9 @@
+{% if frontend_list %}
+    <ul>
+    {% for question in frontend_list %}
+        <li><h2><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></h2></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

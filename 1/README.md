@@ -11,16 +11,17 @@
 
 1. django-admin startproject mysite .
 
+creating an app named polls :
 2. python manage.py startapp polls 
 
 ```
 <br>
-
+ 
 
 write something in polls/views.py (html pages) .
 
 ```
-mysite --> urls.py     --> (main url)
+mysite --> urls.py   (we have to create this file ourselves )  --> (main url)
               |
               V
 polls --> urls.py  
@@ -79,3 +80,31 @@ now we have ```polls``` as an App .
 <br>
 <br>
 
+
+
+# how to create pannel- Admin 
+
+<br>
+
+## 1_ create an Admin / super-user
+```
+python manage.py createsuperuser 
+```
+then enter a `Username` and `Email` and `Password` .<br>
+now admin , can see dasboard using this command :
+```
+python manage.py runserver 
+
+then go to "/admin/" on your domain 
+```
+
+
++ now we want to access tables/classes/polls which is in models file , in admin's pannel ; so in pools/admin.py file which is empty , write its current codes . <br>
+now add question in Django administration .
+
+<br>
+
+now in views.py add some functions . <br>
++ for calling each function in `polls/views.py` , we should define their related routes in `polls/urls.py`
+
++ now create a file in `polls/templates/polls/` folder, named `index.html`
