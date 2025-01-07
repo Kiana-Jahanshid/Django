@@ -108,3 +108,16 @@ now in views.py add some functions . <br>
 + for calling each function in `polls/views.py` , we should define their related routes in `polls/urls.py`
 
 + now create a file in `polls/templates/polls/` folder, named `index.html`
+
+
+
+
+## MVC 
++ MVC (Model= is our Database <br>
+   View = is HTML files <br>
+   Controller =  is process management) <br>
+
++ but Django is a "MTV" :
+    + model : Database
+    + template : HTML
+    + view : management

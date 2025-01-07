@@ -1,5 +1,5 @@
 import datetime
-from datetime import timezone
+from django.utils import timezone
 from django.db import models
 
 # Create your models here.
@@ -16,7 +16,7 @@ class Question(models.Model):
         # if the difference is more than 1 day or not 
         # if it's more than 1 day --> return false 
         # if it's less than 1 day --> it has published recently , and it's true
-        return self.publish_date >= timezone.now() - datetime.timedelta(days=1) 
+        return timezone.now() - datetime.timedelta(days=1) <= self.publish_date <= timezone.now()
 
 class Choice(models.Model):
     question = models.ForeignKey(Question , on_delete=models.CASCADE) # this will define relation between Question & Choice classes
