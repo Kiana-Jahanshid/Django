@@ -1,6 +1,6 @@
-{% if frontend_list %}
+{% if latest_question_list %}
     <ul>
-    {% for question in frontend_list %}
+    {% for question in latest_question_list %}
         <li><h2><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></h2></li>
     {% endfor %}
     </ul>
