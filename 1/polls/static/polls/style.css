@@ -1,0 +1,9 @@
+li a {
+    color: rgb(42, 153, 250);
+    text-orientation: sideways-right;
+}
+
+body{
+    background: gray url("images/Background.jpg") no-repeat ;
+    background-size: 1550px 780px;
+}
