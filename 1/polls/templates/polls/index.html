@@ -1,4 +1,7 @@
-<head>
+{% extends 'polls/main.html' %}
+{% load static %}
+<html>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Center Text</title>
@@ -7,26 +10,25 @@
         margin: 0;
         height: 100vh;
       }
-  
-      ul {
-        position: absolute;
-        top: 40%;
-        left: 35%;
-        transform: translate(-50%, -50%); /* Move element back by 50% of its size */
-      }
-    </style>
+    </style>    
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
   </head>
 
+  <body>
+    {% block content %}
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+      {% if latest_question_list %}
+          <ul>
+          {% for question  in latest_question_list %}
+              <li><h2><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></h2></li>
+          {% endfor %}
+          </ul>
+      {% else %}
+          <p>No polls are available.</p>
+      {% endif %}
+    
+    {% endblock %}
+  </body>
 
-{% if latest_question_list %}
-    <ul>
-    {% for question  in latest_question_list %}
-        <li><h2><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></h2></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+</html>

@@ -1,0 +1,110 @@
+{% load static %}
+
+
+<html>
+    <head>
+
+        <link rel="stylesheet" href=" {% static 'polls/style.css' %}" >
+        
+        <style>
+
+            .content {
+                max-width: 760px;
+                margin: 0 auto;          
+                background: rgba(89, 122, 148, 0.414);    
+                box-shadow: 0 8px 10px rgba(102, 221, 237, 0.151); 
+                border-radius: 15px;      
+                padding: 25px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight: 90;
+            }
+            .header h2{
+                text-align: center;
+                font-size: 1.5rem;        
+                color: #007bff;         
+                margin-bottom: 59px;
+                border-bottom: 2px solid #dee2e6; 
+                display: inline-block;
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+
+            .footer {
+                position: fixed;    
+                bottom: 10px;       
+                left: 10px;         
+                color: rgb(172, 170, 170);       
+                padding: 5px 10px;  
+                font-size: 17px;    
+                border-radius: 5px; 
+                font-family:'Franklin Gothic Medium';
+            }
+
+            body, h1, ul, li {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa; 
+                color: #bccbdb;           
+                padding: 20px;
+                line-height: 1.6;
+            }
+    
+            .title-container {
+                text-align: center;
+            }
+    
+            ul {
+                list-style-type: none;   
+            }
+    
+            li {
+                background: #9fb1b846;    
+                margin-bottom: 13px;
+                padding: 1px 16px;
+                border-radius: 12px;     
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+            }
+    
+            li:hover {
+                background-color: #56dffe99; 
+                color: #ffffff;           
+            }
+
+
+
+
+        </style>
+    
+    </head>
+    <body>
+        <div class="header">
+            <h2>welcome to Django website</h2>
+        </div>
+        <div class="content">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+        <div class="footer">
+            © kiki 2025 
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

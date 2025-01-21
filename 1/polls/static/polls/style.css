@@ -1,9 +1,11 @@
-li a {
-    color: rgb(42, 153, 250);
+li a , li a:visited{ 
+    color: #00b3ff;
     text-orientation: sideways-right;
+    
 }
 
 body{
-    background: gray url("images/Background.jpg") no-repeat ;
+    background: gray url("images/B.jpg") no-repeat ;
     background-size: 1550px 780px;
+    
 }

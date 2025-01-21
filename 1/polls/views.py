@@ -48,25 +48,3 @@ def vote(request , question_id):
 
 
 
-
-# def index(request):
-#     # will displays latest 5 polls questions , separated by commas , according to publication date.
-#     # " -publish_date " : means that print question based on published date,  in a descending order (newer question comes first)
-#     backend_list = Question.objects.filter(publish_date=timezone.now()).order_by("-publish_date")[:5] # will read five rows od DB 
-#     template = loader.get_template("polls/index.html") # load html file with loader 
-#     context = {"frontend_list": backend_list} # dictionary mapping template variable names to Python objects.
-#     return HttpResponse(template.render(context, request))
-#     # or return render(request, "polls/index.html", context)
-
-
-# def detail(request , question_id):
-#     try:
-#         question = Question.objects.filter(pk=question_id)
-#     except Question.DoesNotExist:
-#         raise  Http404("Question does not exist ❌")
-#     return render(request, "polls/detail.html", {"question":question})
-
-
-# def results(request , question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, "polls/results.html", {"question": question})

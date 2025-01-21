@@ -121,3 +121,20 @@ now in views.py add some functions . <br>
     + model : Database
     + template : HTML
     + view : management
+
+<br>
+
+```
+migration folder is related to DataBase 
+```
+
+## How to apply a same HTML template to all paged ?
++ create `main.html` in `templates/polls` folder . then we define content block in it .
++ now in other html files we use JINJA format , adnd add `{% block content %}` in the beginnig of each of them .
+
++ and then add `{% extends 'main.html' %}` to all html files .
+
+
+
+# website link :
++ https://djangoo.liara.run/ 
