@@ -11,7 +11,7 @@ class QuestionAdmin(admin.ModelAdmin):
                 {"fields":["question_text"]}) ,
                 ("Date_information", {"fields":["publish_date"] , "classes":["collapse"]}) ] # Date_information is a title of date field
     inlines = [ChoiceInline]
-    list_display =["question_text" , "publish_date" , "was_published_recently"]
+    list_display =["question_text" , "jalali_datetime" , "was_published_recently"]
     list_filter = ["publish_date"]
     search_fields =["question_text"]
 

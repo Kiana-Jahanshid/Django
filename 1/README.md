@@ -138,3 +138,11 @@ migration folder is related to DataBase
 
 # website link :
 + https://djangoo.liara.run/ 
+
+
+
+# Forgetting password for Django admin pannel 
+if you forgot your password , you can reset it using this command :
+```
+python3 manage.py changepassword <username>
+```
