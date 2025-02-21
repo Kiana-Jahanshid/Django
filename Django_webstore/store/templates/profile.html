@@ -1,0 +1,83 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    User Profile
+{% endblock %}
+
+
+{% block content %}
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 350px;
+        }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #6a11cb;
+        }
+        .profile-card h2 {
+            font-size: 22px;
+            color: #333;
+        }
+        .profile-card p {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .logout-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #2575fc;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .logout-btn:hover {
+            background: #6a11cb;
+        }
+    </style>
+
+
+    <div class="profile-card">
+        <h3> Welcome dear {{ user.username }}</h3>
+        <h4>Email : {{ user.email }}</h4>
+        <h5>Phone Number : {{ user.phone_number }}</h5>
+        <h6>Adress : {{ user.address }}</h6>
+        <a href="/signout/" class="logout-btn">Logout</a>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

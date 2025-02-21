@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'blog'
 ]
 
+AUTH_USER_MODEL= "store.Customer" 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -120,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "store/static")]
+LOGIN_URL = "/signin/"
+LOGIN_REDIRECT_URL = "/profile/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -36,3 +36,17 @@ and use `{% load static %}` in html files like this :
 <script src="{% static 'js/main.js' %}"></script>
 . 
 ```
+
+
+# How to apply migrations :
+```
+python manage.py makemigrations store
+```
+then
+```
+python manage.py migrate
+```
+now you can run :
+```
+python manage.py runserver
+```
