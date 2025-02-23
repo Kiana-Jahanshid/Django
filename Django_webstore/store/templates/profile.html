@@ -7,7 +7,6 @@
 
 {% block content %}
 
-
     <style>
         * {
             margin: 0;
@@ -16,7 +15,7 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background: linear-gradient(to left, #6407c7, #4d7aff);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,17 +25,9 @@
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 350px;
-        }
-        .profile-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid #6a11cb;
         }
         .profile-card h2 {
             font-size: 22px;
@@ -59,25 +50,63 @@
             transition: 0.3s;
         }
         .logout-btn:hover {
-            background: #6a11cb;
+            background: #881cfb;
+            color: white;
         }
+        .messages {
+            position: fixed;
+            top: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+        
+        .alert {
+            padding: 20px 50px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            animation: fadeOut 16s forwards;
+        }
+        
+        .alert-success {
+            background-color: #48cb4c;
+            color: white;
+        }
+        
+        .alert-error {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+        
     </style>
 
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <div class="profile-card">
         <h3> Welcome dear {{ user.username }}</h3>
+        <br>
         <h4>Email : {{ user.email }}</h4>
+        <br>
         <h5>Phone Number : {{ user.phone_number }}</h5>
-        <h6>Adress : {{ user.address }}</h6>
+        <br>
+        <h5>Adress : {{ user.address }}</h5>
+        <br>
         <a href="/signout/" class="logout-btn">Logout</a>
     </div>
-
-
-
-
-
-
-
 
 
 {% endblock %}

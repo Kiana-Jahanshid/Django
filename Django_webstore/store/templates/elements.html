@@ -1,59 +1,13 @@
-	<!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="static/img/elements/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="colorlib">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Watch</title>
+{% extends "master.html" %}
+{% load static %}
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="static/css/linearicons.css">
-			<link rel="stylesheet" href="static/css/owl.carousel.css">
-			<link rel="stylesheet" href="static/css/font-awesome.min.css">
-			<link rel="stylesheet" href="static/css/nice-select.css">			
-			<link rel="stylesheet" href="static/css/magnific-popup.css">
-			<link rel="stylesheet" href="static/css/bootstrap.css">
-			<link rel="stylesheet" href="static/css/main.css">
-		</head>
-		<body>
+{% block title %}
+	elements
+{% endblock %}
 
-		  <header id="header" id="home">
-		    <div class="container">
-		    	<div class="row align-items-center justify-content-between d-flex">
-			      <div id="logo">
-			        <a href="index.html"><img src="static/img/logo.png" alt="" title="" /></a>
-			      </div>
-			      <nav id="nav-menu-container">
-			        <ul class="nav-menu">
-			          <li class="menu-active"><a href="index.html#home">Home</a></li>
-			          <li><a href="index.html#about">About</a></li>
-			          <li><a href="index.html#service">Service</a></li>
-			          <li><a href="index.html#unique">Unique Feature</a></li>
-			          <li><a href="index.html#review">Review</a></li>
-			          <li><a href="index.html#faq">Faq</a></li>
-			          <li class="menu-has-children"><a href="">Pages</a>
-			            <ul>
-			              <li><a href="elements.html">Elements</a></li>
-			            </ul>
-			          </li>
-			        </ul>
-			      </nav><!-- #nav-menu-container -->		    		
-		    	</div>
-		    </div>
-		  </header><!-- #header -->
+
+{% block content %}
+
 
 			<!-- Start banner Area -->
 			<section class="generic-banner">				
@@ -654,20 +608,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<!-- End footer Area -->	
 
 
-			<script src="static/js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="static/js/vendor/bootstrap.min.js"></script>			
-			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="static/js/easing.min.js"></script>			
-			<script src="static/js/hoverIntent.js"></script>
-			<script src="static/js/superfish.min.js"></script>	
-			<script src="static/js/jquery.ajaxchimp.min.js"></script>
-			<script src="static/js/jquery.magnific-popup.min.js"></script>	
-			<script src="static/js/owl.carousel.min.js"></script>			
-			<script src="static/js/jquery.sticky.js"></script>
-			<script src="static/js/jquery.nice-select.min.js"></script>			
-			<script src="static/js/parallax.min.js"></script>	
-			<script src="static/js/mail-script.js"></script>				
-			<script src="static/js/main.js"></script>	
 		</body>
-	</html>
+
+{% endblock %}
