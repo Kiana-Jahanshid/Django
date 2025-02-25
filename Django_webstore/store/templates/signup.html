@@ -9,14 +9,14 @@
 
 <style>
     table{
-        
-        width: 110%;
-        margin: auto;
-              
-
+        width: 120%;
+        margin: auto;      
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     table tr td {
-        padding: 1px;
+        padding: 10px;
         border: 1px blue;
     }
     * {
@@ -25,30 +25,7 @@
         box-sizing: border-box;
         font-family: Arial, sans-serif;
     }
-    body {
-        padding-top: 120px;
-        background: linear-gradient(to right, #6a11cb, #2575fc);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
-    .profile-card {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        max-width: 450px;
-    }
-    .profile-card img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 15px;
-        border: 3px solid #6a11cb;
-    }
+
     .profile-card h2 {
         font-size: 26px;
         color: #333;
@@ -60,27 +37,331 @@
     }
     .submit-btn {
         display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #2575fc;
+        margin-top: 30px;
+        padding: 10px 90px;
+        background:linear-gradient(150deg, #0cc7a593 ,#28baf3c3,#771ffbc3);
         color: white;
         text-decoration: none;
         border-radius: 8px;
         font-weight: bold;
         transition: 0.3s;
+        justify-content: center;
+        
     }
     .submit-btn:hover {
-        background: #6a11cb;
+        background: #d7f8ee;
+        color: #000000;
     }
+    body{
+        display: block;
+        position: center;
+        font-family: 'Space Mono', monospace;
+        background-color: rgb(240, 244, 247);
+        background: linear-gradient(145deg,  #414141, #000000);
+        height: 150vh;
+        
+    }
+    
+    .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(190deg,#9ee0ff , #0a98e4, #7503a6);
+    }
+    .circles {
+    position: absolute;
+    height: 270px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    }
+    .circle-1 {
+    height: 330px;
+    width: 330px;
+    top: 180px;
+    left: -185px;
+    opacity: 0.31;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 9s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    animation-direction: alternate;
+    
+    }
+    
+    .circle-2 {
+    height: 236px;
+    width: 236px;
+    bottom: 100px;
+    right: -260px;
+    opacity: 0.58;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    animation-direction: alternate;
+    }
+
+    .circle-3 {
+        height: 210px;
+        width: 210px;
+        bottom: 1px;
+        right: -180px;
+        top:470px;
+        opacity: 0.18;
+        animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+        animation-iteration-count: infinite;
+        animation-name: float;
+        -webkit-animation-name: float;
+        animation-duration: 6s;
+        -webkit-animation-duration: 6s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        animation-direction: alternate;
+    }
+    .circle-4 {
+        height: 170px;
+        width: 170px;
+        bottom: 349px;
+        left: -35px;
+        opacity: 0.6;
+        animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+        animation-iteration-count: infinite;
+        animation-name: float;
+        -webkit-animation-name: float;
+        animation-duration: 6s;
+        -webkit-animation-duration: 6s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        animation-direction: alternate;
+    }
+    /* ANIMATIONS */
+    @keyframes explode {
+    0% { opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+    }
+    @keyframes float {
+    
+    0% {
+        -webkit-transform: rotateX(0deg) translateY(0px);
+        -moz-transform: rotateX(0deg) translateY(0px);
+        -ms-transform: rotateX(0deg) translateY(0px);
+        -o-transform: rotateX(0deg) translateY(0px);
+        transform: rotateX(0deg) translateY(0px);
+        }
+    
+    50% {
+        -webkit-transform: rotateX(0deg) translateY(1px) translateX(5px);
+        -moz-transform: rotateX(0deg) translateY(10px) translateX(5px);
+        -ms-transform: rotateX(0deg) translateY(30px) translateX(5px);
+        -o-transform: rotateX(0deg) translateY(40px) translateX(5px);
+        transform: rotateX(0deg) translateY(10px) translateX(5px);
+    }
+    100% {
+        -webkit-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -moz-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -ms-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -o-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        transform: rotateX(0deg) translateY(0px) translateX(1px);
+    }
+    
+    }
+    
+    .mdl{
+    height: auto;
+    width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%,-60%);
+    }
+
+    
+    .profile-card {
+    height: 880px;
+    width: 655px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    border: 2.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    overflow: hidden;
+    text-align: left;
+    padding-right: 110px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    margin: -70px;
+    margin-top: 100px;
+    }
+    
+    
+    input[id="card-number"]{
+    font-size: 90px;
+    font-family: 'Space Mono', monospace;
+    width: 100%;
+    height: 60px;
+    }
+    
+    input[id="card-number"]::placeholder{
+    color: #b5b5b5;
+    font-size: 90px;
+    font-family: 'Space Mono', monospace;
+    }
+    
+    input::placeholder{
+    color: #b5b5b5;
+    font-family: 'Space Mono', monospace;
+    }
+    
+    .group{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .card-number{ 
+    position:relative; 
+    display: inline-block;
+    overflow: hidden;
+    margin-bottom:35px; 
+    }
+    
+    .card-number > input[id="card-number"]{
+    border: none;
+    margin-bottom: 0px;
+    outline: none;
+    }
+    
+    .underline{
+    transition: all 0.3s;
+    display: inline-block;
+    bottom: 0;
+    left: -100%;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    }
+    
+    .card-number > input[id="card-number"]:hover + .underline
+    {
+    left: 0; 
+    }
+    
+    .card-number > input[id="card-number"]:focus + .underline
+    {
+    left: 0; 
+    }
+    
+    input {
+    font-family: 'Space Mono', monospace;
+    border: none;
+    font-size: 16px;
+    height: 26px;
+    color: #ffffff;
+    background: 0;
+    padding: 1px;
+    width 0;
+    }
+    
+    input:focus{ 
+    border-bottom: 2px solid white;
+    outline: none;
+    font-family: 'Space Mono', monospace;
+    border: none;
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    margin-bottom: -2px;
+    }
+    
+    input:hover{
+    border-bottom: 2px solid white;
+    font-family: 'Space Mono', monospace;
+    color: white;
+    margin-bottom: -1px;
+    font-size: 16px;
+    height: 30px;
+    }
+    
+    input[id="card-number"]:focus
+    {
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 30px;
+    height: 50px;
+    margin-bottom: -2px;
+    width: 400px;
+    }
+    
+    input[id="card-number"]:hover
+    {
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 30px;
+    height: 50px;
+    margin-bottom: -2px;
+    width: 400px;
+    }
+    
+
+    label {
+    color: white; 
+    font-size:16px;
+    font-weight:normal;
+    font-family: 'Space Mono', monospace;
+    pointer-events:none;
+    display: block;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    }
+        
 </style>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <div class="box">
+      <div class="mdl">
+      <div class="circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-4"></div>
+      </div>  
+    
+    
+
 
 <div class="profile-card">
     <form method="POST" >  
+        <h1 style="padding-bottom: 30px; margin-left:245px">Signup</h1>
         <table style="border:3px;" >
             {% csrf_token %} <!-- it'll prevent fraudulent activity. it works like recaptcha -->
             {{ form.as_table }}
         </table>
-        <button type="submit" class="submit-btn">submit</button>
+        <br>
+        <button type="submit" class="submit-btn" style="margin:auto; margin-left:198px;">submit</button>
+        <br>
+        <h5 style="margin-left:215px; color:#b5b5b5; padding-top: 15px; padding-bottom:15px;">Have an account?<a href="/signin/" style="color: #7418ed;"> Signin </a></h5>
     </form>   
 </div>
 {% endblock %}
