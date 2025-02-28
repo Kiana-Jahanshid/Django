@@ -2,8 +2,17 @@ from django.shortcuts import render , redirect
 from .forms import SignInForm , SignUpForm , AuthenticationForm
 from django.contrib.auth import login , logout
 from django.contrib.auth.decorators import login_required 
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.auth.views import PasswordResetView
+from django.contrib.messages.views import SuccessMessageMixin
+
+
+class ResetPasswordView(SuccessMessageMixin , PasswordResetView):
+    template_name = "password_reset.html"
+    message = "We've emailed you instructions for setting your password "
+    email_template_name = 'password_reset_email.html'
+    url = reverse_lazy("password_reset_complete")
 
 
 def index(request):
@@ -14,6 +23,10 @@ def products(request):
 
 def elements(request):
     return render(request , template_name="elements.html")
+
+def password_reset_confirm(request):
+    return render(request , template_name="password_reset_confirm.html")
+
 
 def signupView(request):
     if request.method == "GET":
@@ -55,3 +68,4 @@ def signoutView(request):
 @login_required
 def profileView(request):
     return render(request , template_name="profile.html" , context={"user":request.user}) 
+
