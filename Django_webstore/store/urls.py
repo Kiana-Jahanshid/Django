@@ -14,7 +14,7 @@ urlpatterns = [
     path("" , views.index , name='index'), # --> in views.py
     path("products/" , views.products , name="products"),
     path("signup/" , views.signupView , name="signup"),
-    path("signin/", views.signinView , name="signin"),
+    path("signin/", auth_views.LoginView.as_view(template_name="signin.html") , name="signin"), #views.signinView
     path("signout/" , views.signoutView , name="signout"),
     path("profile/" , views.profileView , name="profile"),
     path("elements/" , views.elements , name="elements"),
