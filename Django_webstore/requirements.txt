@@ -1,1 +1,4 @@
 django
+python-dotenv
+psycopg2-binary
+pillow

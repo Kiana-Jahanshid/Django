@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-	product
+	لیست کالاها
 {% endblock %}
 
 
@@ -22,52 +22,23 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="single-unique-product">
-                            <img class="img-fluid" src="{% static 'img/u1.jpg' %}" alt="">
-                            <div class="desc">
-                                <h4>
-                                    Apple Watch White
-                                </h4>
-                                <h6>£399.00</h6>
-                                <a class="text-uppercase primary-btn" href="#">Pre Order</a>
-                            </div>
+
+                            {% for product in products %}
+                                    <img class="img-fluid" src="{% static 'img/u' %}{{ product.id }}.jpg" alt="">
+                                    <div class="desc">
+                                        <h4>
+                                            <a href="/product/{{product.id}}">{{ product.name }}</a>
+                                        </h4>
+                                        <h6> {{ product.price }} تومان</h6>
+                                        <!-- <h6>{{ product.get_category_display }} </h6> --> <!-- the way we can show category in django -->
+                                        <a class="text-uppercase primary-btn" href="/product/{{product.id}}">مشاهده بیشتر</a>
+                                    </div>
+
+                            {% endfor %}
+
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-unique-product">
-                            <img class="img-fluid" src="{% static 'img/u2.jpg' %}" alt="">
-                            <div class="desc">
-                                <h4>
-                                    Apple Watch White
-                                </h4>
-                                <h6>£399.00</h6>
-                                <a class="text-uppercase primary-btn" href="#">Pre Order</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-unique-product">
-                            <img class="img-fluid" src="{% static 'img/u3.jpg' %}" alt="">
-                            <div class="desc">
-                                <h4>
-                                    Apple Watch White
-                                </h4>
-                                <h6>£399.00</h6>
-                                <a class="text-uppercase primary-btn" href="#">Pre Order</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-unique-product">
-                            <img class="img-fluid" src="{% static 'img/u4.jpg' %}" alt="">
-                            <div class="desc">
-                                <h4>
-                                    Apple Watch White
-                                </h4>
-                                <h6>£399.00</h6>
-                                <a class="text-uppercase primary-btn" href="#">Pre Order</a>
-                            </div>
-                        </div>
-                    </div>																		
+					
                 </div>
             </div>	
         </section>        

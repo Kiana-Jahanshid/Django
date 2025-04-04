@@ -50,3 +50,17 @@ now you can run :
 ```
 python manage.py runserver
 ```
+
+
+# How to use admin pannel :
+```
+python manage.py createsuperuser (for first time)
+
+python manage.py runserver
+
+then go to "http://127.0.0.1:8000/admin" and create a product 
+
+```
+
+
+In urls.py --> add a path named product (to see product's list)

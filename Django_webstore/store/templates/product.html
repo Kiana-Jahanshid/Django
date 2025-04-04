@@ -1,0 +1,106 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+    محصول
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+
+        .main-wrapper{
+            direction: rtl; 
+            text-align: right;
+            
+        }
+
+        .product-image {
+            flex: 1 1 45%;
+            max-width: 350px;
+            padding: 20px;
+        }
+
+        .product-image img {
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-details {
+            flex: 1 1 50%;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #dbe5ee;
+        }
+
+        .brand {
+            font-size: 1rem;
+            color: #a8a8a8;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.6rem;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+        .stock {
+            font-size: 1.2rem;
+            color:#a8a8a8;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-top: 30px;
+            margin-bottom: 30px;
+            color: #a8a8a8;
+        }
+
+        .buy-button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+    <div class="main-wrapper">
+        <section class="unique-feature-area section-gap" id="unique" style="padding-top: 200px; padding-bottom: 200px;">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+        <div class="product-image">
+            <img src="{% static 'img/u' %}{{ product.id }}.jpg" alt="{{ product.name }}">
+        </div>
+
+        <div class="product-details" >
+            <h1 class="product-title">{{ product.name }}</h1>
+            <div class="brand"> برند : {{ product.brand }} </div>
+            <span><div class="price">{{ product.price|floatformat:0}} تومان </div></span>
+            <div class="stock"> موجودی :{{ product.stock }} </div>
+            <div class="description" dir="rtl">
+                {{ product.info }}
+            </div>
+            <a href="/add_to_cart/{{product.id}}" class="buy-button" >افزودن به سبد خرید</a>
+        </div>
+    </div>
+</section>
+</div>
+
+{% endblock %}

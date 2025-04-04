@@ -1,0 +1,132 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% block title %}
+	لیست کالاها
+{% endblock %}
+
+
+{% block content %}
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .row {
+            max-width: 2000px;
+        }
+        h2 {
+            color: #282b2e;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            font-weight: bolder;
+            color: #262728;
+            font-size:17px;
+            border: 2px solid #ddd;  /* Adds a subtle border */
+        }
+        
+        th {
+            background-color: rgb(141, 19, 19);
+            color: white;
+            font-weight: bold;
+        }
+        
+        td {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #e8f4fd; /* Subtle hover effect */
+        }
+        
+        h3 {
+            color: rgb(141, 19, 19);
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+        
+        .checkout-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #0e43b6;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+        
+        .checkout-btn:hover {
+            background-color: #1d61de;
+        }
+        
+        .main-wrapper{
+            direction: rtl; 
+            text-align: right;
+            
+        }
+        
+    </style>
+    <div class="main-wrapper" >
+        <section class="unique-feature-area section-gap" id="unique">
+            <div class="container" style="padding-right: 120px;" >
+                <div class="row" >
+                    <div class="col-lg-10 col-md-10">
+                        <div class="single-unique-product">
+                            <h2 style="padding-bottom: 40px; padding-top:20px; text-align:center">سبد خرید</h2>
+    
+                            {% if cart_items %}
+                                <table >
+                                    <tr>
+                                        <th style="padding-right: 40px;">کالا</th>
+                                        <th style="padding-right: 30px;">قیمت</th>
+                                        <th style="padding-right: 10px;">تعداد</th>
+                                        <th style="padding-left: 30px;">قیمت کل</th>
+                                    </tr>
+                                    {% for item in cart_items %}
+                                    <tr>
+                                        <td style="padding-right: 40px; padding-bottom: 10px;">{{ item.product.name }}</td>
+                                        <td style="padding-right: 30px;"> {{ item.product.price|floatformat:0 }} تومان </td>
+                                        <td style="padding-right: 10px;">{{ item.quantity }}</td>
+                                        <td style="padding-left: 30px;"> {{ item.total|floatformat:0 }} تومان </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                
+                                <h3 style="padding-top: 30px; padding-bottom:40px;"> جمع کل :  {{ total_price|floatformat:0 }} تومان</h3>
+                                <a href="#" class="checkout-btn">تکمیل فرآیند خرید</a>
+                            {% else %}
+                                <p>Your cart is empty.</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+					
+                </div>
+            </div>	
+        </section>        
+    </div>
+
+{% endblock %}
+

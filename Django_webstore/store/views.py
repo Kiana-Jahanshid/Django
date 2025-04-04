@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
-
+from .models import Product
 
 class ResetPasswordView(SuccessMessageMixin , PasswordResetView):
     template_name = "password_reset.html"
@@ -19,7 +19,58 @@ def index(request):
     return render(request , template_name="index.html")
 
 def products(request):
-    return render(request , template_name="products.html")
+    # first read DB's data
+    products = Product.objects.all()
+    return render(request , template_name="products.html" , context={'products':products})
+
+def product(request , id:int):
+    product = Product.objects.get(id=id)
+    return render(request, 'product.html', {'product': product})
+
+
+def view_cart(request):
+    cart = request.session.get('cart', {})
+    cart_items = []
+    total_price = 0
+    for product_id, quantity in cart.items():
+        product = Product.objects.get(id=product_id)
+        total_price += product.price * quantity
+        cart_items.append({
+            'product': product,
+            'quantity': quantity,
+            'total': product.price * quantity})
+    return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
+
+
+def add_to_cart(request , id):
+    product = Product.objects.get(id=id)
+    if 'cart' not in request.session:
+        request.session['cart'] = {}
+
+    cart = request.session['cart']
+    if str(id) in cart:
+        if product.stock > cart[str(id)]:
+            cart[str(id)] += 1  # Increase quantity
+            product.stock -= 1   # Reduce stock
+            product.save()
+        else:
+            messages.warning(request, " عدم موجودی کالا !")
+    else:
+        if product.stock > 0:
+            cart[str(id)] = 1  # Add new product
+            product.stock -= 1  # Reduce stock
+            product.save()
+        else:
+            messages.warning(request, " عدم موجودی کالا !")
+
+    request.session['cart'] = cart  # Save cart in session
+    request.session.modified = True
+    return redirect('/cart/')
+
+
+
+def info_completion(request):
+    return render(request , template_name="info_completion.html")
 
 def elements(request):
     return render(request , template_name="elements.html")
