@@ -8,6 +8,21 @@
 
 {% block content %}
 
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            text-align: center;
+            border-radius: 8px;
+        }
+    </style>
+
     <div class="main-wrapper">
         <section class="unique-feature-area section-gap" id="unique">
             <div class="container">
@@ -20,10 +35,11 @@
                     </div>
                 </div>						
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="single-unique-product">
-
+                    <div class="single-unique-product">
+                        <div class="grid-container">
                             {% for product in products %}
+                                <div class="product-card">
+
                                     <img class="img-fluid" src="{% static 'img/u' %}{{ product.id }}.jpg" alt="">
                                     <div class="desc">
                                         <h4>
@@ -33,12 +49,10 @@
                                         <!-- <h6>{{ product.get_category_display }} </h6> --> <!-- the way we can show category in django -->
                                         <a class="text-uppercase primary-btn" href="/product/{{product.id}}">مشاهده بیشتر</a>
                                     </div>
-
+                                </div>     
                             {% endfor %}
-
                         </div>
                     </div>
-					
                 </div>
             </div>	
         </section>        
