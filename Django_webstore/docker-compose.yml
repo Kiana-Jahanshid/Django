@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  django_db: # we should change the value of "POSTGRES_HOST" into "db" (in .env)
+    image: postgres # this docker-image has been pulled from dockerhub & it exists & there is no need to build it here again.
+    container_name: django_store
+    restart: always
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      # this path (postgres_data) from out of the docker, will be mapped inside the docker
+      # but we have to define it(postgres_data) at the end of this file
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+    - "5432:5432"
+
+
+  web:
+    build: . # "." means run the docker image which is exists in current path 
+    container_name: django_docker # random name
+    restart: always
+    depends_on: 
+    - webstore_db        # it means that postgres container will always runs first 
+    environment:
+      - DB_HOST=django_store
+    ports:
+    - "8000:8000"
+    volumes:
+      - .:/app  # this is the folder which was used in django dockerfile
+      # .:/app = means map all the content in current path into the app folder
+    command: ["python","manage.py","migrate","&&","python","manage.py","runserver","0.0.0.0:8000"]
+
+
+volumes:
+  postgres_data:

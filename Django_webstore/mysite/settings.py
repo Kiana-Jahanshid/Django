@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':'django_store',#os.getenv("POSTGRES_DB"),
-        'USER': 'postgres',#os.getenv("POSTGRES_USER"),
-        'PASSWORD': '1234',#os.getenv("POSTGRES_PASSWORD"),
-        'HOST': 'localhost', #os.getenv("POSTGRES_HOST"),
+        'NAME':'django_db',#os.getenv("POSTGRES_DB"),
+        'USER': 'root',#os.getenv("POSTGRES_USER"),
+        'PASSWORD': 'kr5MypNur4hlMQRnlnilcn3j',#os.getenv("POSTGRES_PASSWORD"),
+        'HOST': 'django-db', #os.getenv("POSTGRES_HOST"),
         'PORT': '5432',#os.getenv("POSTGRES_PORT"),
     }
 
@@ -150,3 +150,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = str(os.getenv('EMAIL_USER'))
 EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_PASSWORD'))
+
+# for loading product's images 
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR , "media")

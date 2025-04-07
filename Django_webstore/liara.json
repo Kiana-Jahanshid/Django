@@ -1,0 +1,10 @@
+{
+    "disks":[
+        {
+            "name":"django",
+            "mountTo":"media/static/img"
+        }
+
+    ],
+    "app":"djangoo"
+}

@@ -8,6 +8,10 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView,
     PasswordResetCompleteView
 )
+# imported for loading images which has been uploaded from admin pannel
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 app_name = "store"
 urlpatterns = [
@@ -31,3 +35,5 @@ urlpatterns = [
 ]
 
 
+if settings.DEBUG :
+    urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT) 

@@ -79,15 +79,18 @@
         .buy-button:hover {
             background-color: #2980b9;
         }
+
     </style>
 
     <div class="main-wrapper">
         <section class="unique-feature-area section-gap" id="unique" style="padding-top: 200px; padding-bottom: 200px;">
             <div class="container">
                 <div class="row d-flex justify-content-center">
-        <div class="product-image">
-            <img src="{% static 'img/u' %}{{ product.id }}.jpg" alt="{{ product.name }}">
-        </div>
+        {% for image in product.images.all %}
+            <div class="product-image">
+                <img width="20px" src="{{ image.image.url }}" alt="{{ product.name }}">
+            </div>
+        {% endfor %}
 
         <div class="product-details" >
             <h1 class="product-title">{{ product.name }}</h1>
